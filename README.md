@@ -1,58 +1,106 @@
-# UILibWorkspace
+# UILib Workspace
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+This project contains the UILib component library and a Demo application to showcase its components.
 
-## Development server
+## Projects
 
-To start a local development server, run:
+### UILib - Component Library
+A reusable Angular component library with styled, interactive components.
 
+**Components included:**
+- `UILib` - Basic library component
+- `Button` - Interactive button component with multiple variants (primary, secondary, danger)
+
+### Demo - Showcase Application  
+A demonstration app that showcases all UILib components with interactive examples.
+
+## Quick Start
+
+### 1. Build the UILib Library
+```bash
+ng build UILib
+```
+
+### 2. Run the Demo Application
+```bash
+ng serve Demo
+```
+
+Then navigate to `http://localhost:4200/` to see the component showcase.
+
+### 3. Run the Default Application (if needed)
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Development Workflow
 
-## Code scaffolding
+1. **Develop Components**: Edit components in `projects/uilib/src/lib/`
+2. **Build Library**: Run `ng build UILib` to compile the library
+3. **Test in Demo**: The Demo app automatically uses the latest built library
+4. **View Results**: Check `http://localhost:4200/` to see your components in action
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Project Structure
 
-```bash
-ng generate component component-name
+```
+projects/
+├── uilib/                   # Component Library
+│   ├── src/
+│   │   ├── public-api.ts    # Library exports
+│   │   └── lib/
+│   │       ├── uilib.ts     # Basic UILib component
+│   │       └── button/      # Button component
+│   └── ng-package.json      # Library build config
+└── demo/                    # Demo Application
+    ├── src/
+    │   └── app/
+    │       ├── app.ts       # Demo app logic
+    │       ├── app.html     # Component showcase
+    │       └── app.css      # Demo styling
+    └── README.md            # Demo-specific documentation
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Available Scripts
 
+### Build Commands
 ```bash
-ng generate --help
+ng build UILib          # Build the component library
+ng build Demo           # Build the demo application
 ```
 
-## Building
-
-To build the project run:
-
+### Serve Commands
 ```bash
-ng build
+ng serve Demo           # Serve demo app on http://localhost:4200
+ng serve               # Serve default app (if configured)
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Test Commands
 ```bash
-ng test
+ng test UILib          # Run UILib component tests
+ng test Demo           # Run Demo application tests
 ```
 
-## Running end-to-end tests
+## Adding New Components
 
-For end-to-end (e2e) testing, run:
+1. Generate a new component in the UILib:
+   ```bash
+   ng generate component projects/uilib/src/lib/my-component
+   ```
 
-```bash
-ng e2e
-```
+2. Export it in `projects/uilib/src/public-api.ts`:
+   ```typescript
+   export * from './lib/my-component/my-component';
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Build the library:
+   ```bash
+   ng build UILib
+   ```
+
+4. Import and showcase it in the Demo app:
+   ```typescript
+   import { MyComponent } from '../../../uilib/src/lib/my-component/my-component';
+   ```
 
 ## Additional Resources
 
