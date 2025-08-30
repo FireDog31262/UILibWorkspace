@@ -1,0 +1,13 @@
+<div class="dual-view-container">
+  <div class="dual-view-parent" [style.height]="parentHeight">
+    <ng-content select="[parent]"></ng-content>
+  </div>
+  <!-- @if (details()) { -->
+  <div class="dual-view-banner" (click)="toggleDetails()" style="cursor: pointer;">
+    <ng-content select="[details-banner]"></ng-content>
+  </div>
+  <div class="dual-view-details" [style.height]="detailsHeight">
+    <ng-content select="[details]"></ng-content>
+  </div>
+  <!-- } -->
+</div>
