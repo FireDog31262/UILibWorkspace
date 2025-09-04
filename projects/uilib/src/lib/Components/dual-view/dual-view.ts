@@ -13,10 +13,10 @@ export class DualViewComponent {
   }
 
   get parentHeight(): string {
-    return this.detailsOpen ? 'calc(50% - 20px)' : 'calc(100% - 40px)';
+    return this.detailsOpen ? 'calc(50% - 35px)' : 'calc(100% - 55px)';
   }
 
   get detailsHeight(): string {
-    return this.detailsOpen ? 'calc(50% - 30px)' : '0px';
+    return this.detailsOpen ? 'calc(50% - 35px)' : '0px';
   }
 }
